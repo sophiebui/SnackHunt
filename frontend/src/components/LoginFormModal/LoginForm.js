@@ -9,32 +9,34 @@ function LoginForm() {
 	const [ errors, setErrors ] = useState([]);
 
 	const handleSubmit = (e) => {
-    e.preventDefault();
+		e.preventDefault();
 		setErrors([]);
 		return dispatch(sessionActions.login({ credential, password })).catch(async (res) => {
-      const data = await res.json();
+			const data = await res.json();
 			if (data && data.errors) setErrors(data.errors);
 		});
 	};
 
-  const demoUser = (e) => {
-    e.preventDefault();
-    return dispatch(sessionActions.login({ credential: 'demo@user.io', password: 'password' }));
-  };
+	const demoUser = (e) => {
+		e.preventDefault();
+		return dispatch(sessionActions.login({ credential: 'demo@user.io', password: 'password' }));
+	};
 
 	return (
 		<form onSubmit={handleSubmit}>
 			<ul>{errors.map((error, idx) => <li key={idx}>{error}</li>)}</ul>
-			<label>
-				Username or Email
-				<input type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
-			</label>
-			<label>
-				Password
-				<input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-			</label>
-			<button type="submit">Log In</button>
-      <button onClick={demoUser}>Demo</button>
+			<div className="login-form">
+				<label className="login-label">
+					Username or Email
+					<input type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
+				</label>
+				<label className="login-label">
+					Password
+					<input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+				</label>
+				<button className='login-buttons' type="submit">Log In</button>
+				<button className='login-buttons' onClick={demoUser}>Demo</button>
+			</div>
 		</form>
 	);
 }

@@ -23,9 +23,11 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
+    <ul className='navbar'>
       <li>
-        <NavLink exact to="/">Home</NavLink>
+          <NavLink exact to="/"><img src='logo/SH-Logo-1.png' alt='SnackHunt Logo' className='logo'/></NavLink>
+      </li>
+      <li className='navbar-links'>
         {isLoaded && sessionLinks}
       </li>
     </ul>
