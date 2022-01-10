@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
-function SignupFormPage() {
+function SignupForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -32,7 +32,8 @@ function SignupFormPage() {
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <label>
+      <div className='signup-form-div'>
+      <label className='signup-label'>
         Email
         <input
           type="text"
@@ -41,7 +42,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <label>
+      <label className='signup-label'>
         Username
         <input
           type="text"
@@ -50,7 +51,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <label>
+      <label className='signup-label'>
         Password
         <input
           type="password"
@@ -59,7 +60,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <label>
+      <label className='signup-label'>
         Confirm Password
         <input
           type="password"
@@ -68,9 +69,10 @@ function SignupFormPage() {
           required
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button className='modal-button' type="submit">Sign Up</button>
+    </div>
     </form>
   );
 }
 
-export default SignupFormPage;
+export default SignupForm;

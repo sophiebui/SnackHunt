@@ -25,7 +25,7 @@ function LoginForm() {
 	return (
 		<form onSubmit={handleSubmit}>
 			<ul>{errors.map((error, idx) => <li key={idx}>{error}</li>)}</ul>
-			<div className="login-form">
+			<div className="login-form-div">
 				<label className="login-label">
 					Username or Email
 					<input type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
@@ -34,8 +34,8 @@ function LoginForm() {
 					Password
 					<input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
 				</label>
-				<button className='login-buttons' type="submit">Log In</button>
-				<button className='login-buttons' onClick={demoUser}>Demo</button>
+				<button className='modal-button' type="submit">Log In</button>
+				<button className='modal-button' onClick={demoUser}>Demo</button>
 			</div>
 		</form>
 	);
