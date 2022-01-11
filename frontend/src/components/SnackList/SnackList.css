@@ -3,6 +3,7 @@
     display:flex;
     flex-direction: column;
     row-gap: 36px;
+    margin: 90px 0 0 300px;
 }
 
 .snack-container {
