@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import SnackList from "./components/SnackList";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,13 +15,13 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {/* {isLoaded && (
-        <Switch>
-          <Route path="/signup">
-            <SignupForm />
+      {isLoaded && (
+      <Switch>
+          <Route exact path='/'>
+            <SnackList />
           </Route>
         </Switch>
-      )} */}
+      )}
     </>
   );
 }
