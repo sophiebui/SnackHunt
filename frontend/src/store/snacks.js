@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const GET_SNACKS = 'snacks/GET_SNACKS';
+const CREATE_SNACK = 'snacks/CREATE_SNACK';
 
 export const getSnacks = (snacks) => {
   return {
@@ -8,6 +9,14 @@ export const getSnacks = (snacks) => {
     snacks
   };
 }
+
+export const createSnack = (snack) => {
+  return {
+    type: CREATE_SNACK,
+    snack
+  };
+}
+
 
 export const getAllSnacks = () => async (dispatch) => {
   const response = await csrfFetch('/api/snacks');

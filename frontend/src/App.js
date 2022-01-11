@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SnackList from "./components/SnackList";
+import CreateSnack from "./components/CreateSnack";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ function App() {
       <Switch>
           <Route exact path='/'>
             <SnackList />
+          </Route>
+          <Route path='/new'>
+            <CreateSnack />
           </Route>
         </Switch>
       )}

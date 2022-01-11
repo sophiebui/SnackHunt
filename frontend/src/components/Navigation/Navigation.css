@@ -20,12 +20,16 @@ body {
 li {
     list-style-type: none;
 }
-
+div.navbar-links {
+    display: flex;
+    align-items: center;
+}
 .navbar-links {
     text-decoration: none;
     padding: 20px;
     display: flex;
     width: 277px;
+    color: black;
 
 }
 
@@ -33,6 +37,9 @@ li {
     margin: 8px;
 }
 
+.navbar-links:hover {
+    color: #F92C85;
+}
 .navbar-links > button:hover {
 	border: none;
 	background: #8d8b8b;
