@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 
 import './Navigation.css';
+import AboutLink from './AboutLink';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -35,6 +36,9 @@ function Navigation({ isLoaded }){
       </li>
       <li>
         <NavLink to="/" className='navbar-links'>Explore</NavLink>
+      </li>
+      <li>
+        <AboutLink />
       </li>
       </div>
       <li className='navbar-links'>

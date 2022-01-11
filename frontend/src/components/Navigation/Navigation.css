@@ -53,3 +53,10 @@ div.navbar-links {
     height: 90px;
     width: 90px;
 }
+
+.about-dropdown {
+    border: none;
+	border-radius: 5px;
+	height: 28px;
+	width: 100%;
+}
