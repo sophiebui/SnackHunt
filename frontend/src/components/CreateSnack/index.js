@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './CreateSnack.css'
 const CreateSnack = () => {
 	const [ title, setTitle ] = useState('');
 	const [ imageUrl, setImageUrl ] = useState('');
@@ -7,7 +7,7 @@ const CreateSnack = () => {
 
 	return (
         <form>
-            <div>
+            <div className="create-div">
                 <label className="create-label">
                 Name of Snack:
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required/>

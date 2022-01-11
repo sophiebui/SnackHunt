@@ -1,0 +1,17 @@
+form {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.create-div {
+    background-color: #FDF5DF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+    width: 800px;
+    height: 800px;
+}
+
