@@ -6,8 +6,9 @@ const CreateSnack = () => {
 	const [ description, setDescription ] = useState('');
 
 	return (
-        <form>
+        <form className="create-form">
             <div className="create-div">
+                <h2 className="h2-create">SHARE YOUR SNACK:</h2>
                 <label className="create-label">
                 Name of Snack:
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required/>
@@ -18,7 +19,7 @@ const CreateSnack = () => {
                 </label>
                 <label className="create-label">
                 Description
-                <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} required/>
+                <textarea maxlength="250" value={description} onChange={(e) => setDescription(e.target.value)} required/>
                 </label>
                 <button className="create-button" type="submit">
                 Add Snack!
