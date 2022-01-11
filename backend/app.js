@@ -21,11 +21,14 @@ if (!isProduction) {
 	app.use(cors());
 }
 
-app.use(
-	helmet({
-		contentSecruityPolicy: false
-	})
-);
+// app.use(
+// 	helmet({
+// 		contentSecruityPolicy: false
+// 	})
+// );
+
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+
 
 app.use(
 	csurf({
