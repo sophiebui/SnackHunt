@@ -10,6 +10,11 @@ import AboutLink from './AboutLink';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
+  let ownerId;
+  if (sessionUser) {
+    ownerId = sessionUser.id
+  }
+
 
   let sessionLinks;
   if (sessionUser) {
@@ -35,7 +40,7 @@ function Navigation({ isLoaded }){
           <NavLink to="/new" className='navbar-links'>Add a Snack</NavLink>
       </li>
       <li>
-        <NavLink to="/" className='navbar-links'>Explore</NavLink>
+        <NavLink to={`/${ownerId}`} className='navbar-links'>My Snacks</NavLink>
       </li>
       <li>
         <AboutLink />

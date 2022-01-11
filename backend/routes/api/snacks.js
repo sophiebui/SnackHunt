@@ -29,4 +29,15 @@ router.post(
 	})
 );
 
+router.get('/:ownerId', asyncHandler(async(req, res)=> {
+	// const userSnacks = await Snack.findByPk(id);
+	// console.log('/*--------------------------------------------------------------------*/')
+	// console.log('this is user snacks', userSnacks)
+	// return res.json(userSnacks)
+	const snacks = await Snack.findAll({
+		include: User
+	});
+	return res.json({ snacks });
+}))
+
 module.exports = router;

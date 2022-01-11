@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SnackList from "./components/SnackList";
 import CreateSnack from "./components/CreateSnack";
+import UserSnacks from "./components/UserSnacks"
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path='/new'>
             <CreateSnack />
+          </Route>
+          <Route path='/:ownerId'>
+            <UserSnacks />
           </Route>
         </Switch>
       )}

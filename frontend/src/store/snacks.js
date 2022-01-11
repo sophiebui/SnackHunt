@@ -46,6 +46,16 @@ export const submitNewSnack = (snack) => async (dispatch) => {
 	}
 };
 
+export const getUserSnacks = ownerId => async (dispatch) => {
+	const response = await fetch(`/api/${ownerId}`);
+
+	if(response.ok) {
+		const snack = await response.json();
+	}
+}
+
+
+
 
 const initialState = { entries: {} };
 
