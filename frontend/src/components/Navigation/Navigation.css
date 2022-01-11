@@ -33,10 +33,6 @@ div.navbar-links {
 
 }
 
-.navbar-links * {
-    margin: 8px;
-}
-
 .navbar-links:hover {
     color: #F92C85;
 }
@@ -54,9 +50,30 @@ div.navbar-links {
     width: 90px;
 }
 
-.about-dropdown {
+.about-button {
     border: none;
+    background-color: transparent;
 	border-radius: 5px;
-	height: 28px;
-	width: 100%;
+    color: black;
+    font-size: 15px;
+}
+
+.about-button:hover {
+    color: #F92C85;
+    cursor: pointer;
+}
+
+.about-dropdown {
+ background-color: #fdf5df70;
+ margin: 0;
+ padding: 0;
+ position: absolute;
+ top: 100px;
+ padding: 10px;
+ text-align: center;
+ width: 200px;
+border-radius: 5px;
+
+
+
 }

@@ -31,7 +31,7 @@ function AboutLink() {
 
   return (
     <>
-      <button onClick={openMenu}>About</button>
+      <button className='about-button' onClick={openMenu}>About</button>
       {showMenu && (
         <ul className='about-dropdown'>
           <li>
