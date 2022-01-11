@@ -1,0 +1,31 @@
+
+.list-container{
+    display:flex;
+    flex-direction: column;
+    column-gap: 10px;
+    row-gap: 20px;
+}
+
+.snack-container {
+    width: 809px;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    background-color: rgb(165, 178, 190);
+}
+
+.snack-img-container {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+}
+
+.snack-list-img{
+    padding: 10px;
+    
+}

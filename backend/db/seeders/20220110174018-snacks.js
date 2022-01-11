@@ -7,7 +7,7 @@ module.exports = {
 					ownerId: 1,
 					title: 'Shrimp Chips',
 					imageUrl: 'https://res.cloudinary.com/dxubahnmi/image/upload/v1641834276/SnackHunt/4419765_639bb67f28_acehpu.jpg',
-					description: 'Light and crispy baked snack. Can be found in most Asian grocery stores',
+					description: 'Light and crispy baked snack. Slight shrimp flavor but mostly salty.',
 					createdAt: new Date(),
 					updatedAt: new Date()
 				},
