@@ -18,7 +18,7 @@ router.get(
 router.post(
 	'/',
 	asyncHandler(async (req, res) => {
-		const { ownerId, title, imageUrl, description } = req.body;
+		const {ownerId, title, imageUrl, description } = req.body;
 		const snack = await Snack.create({
 			ownerId,
 			title,
@@ -28,7 +28,5 @@ router.post(
 		return res.json({ snack });
 	})
 );
-
-
 
 module.exports = router;
