@@ -2,7 +2,8 @@ import { csrfFetch } from './csrf';
 
 const GET_SNACKS = 'snacks/GET_SNACKS';
 const CREATE_SNACK = 'snacks/CREATE_SNACK';
-// const GET_USER_SNACK = 'snacks/GET_USER_SNACK'
+const REMOVE_SNACK = 'snacks/DELETE_SNACK';
+const GET_ONE_SNACK = 'snacks/GET_ONE_SNACK'
 
 export const getSnacks = (snacks) => {
 	return {
@@ -17,6 +18,21 @@ export const createSnack = (snack) => {
 		snack
 	};
 };
+
+export const removeSnack = (id) => {
+	return {
+		type: REMOVE_SNACK,
+		id
+	};
+};
+
+export const getOneSnack = (id) => {
+	return {
+	  type: GET_ONE_SNACK,
+	  id
+	};
+  }
+
 
 export const getAllSnacks = () => async (dispatch) => {
 	const response = await csrfFetch('/api/snacks');
@@ -46,24 +62,30 @@ export const submitNewSnack = (snack) => async (dispatch) => {
 	}
 };
 
-// export const getUserSnack = (ownerId) => {
-// 	return {
-// 		type: GET_USER_SNACK,
-// 		ownerId
-// 	}
-// }
-
-
-export const getUserSnacks = (ownerId) => async (dispatch) => {
-	console.log(ownerId);
+export const getUserSnacks = (ownerId) => async () => {
 	const response = await fetch(`/api/snacks/${ownerId}`);
-	// const response = await fetch('/:ownerId')
 
 	if (response.ok) {
 		const snack = await response.json();
 		return snack;
 	}
 };
+
+export const deleteSnack = (id) => async (dispatch) => {
+	const response = await csrfFetch(`/api/snacks/${id}`, {
+		method: 'DELETE'
+	});
+	const data = await response.json();
+	dispatch(removeSnack(id));
+	return data;
+};
+
+export const getUserSnack = (id) => async (dispatch) => {
+	const response = await csrfFetch(`/api/snacks/${id}`);
+	const data = await response.json();
+
+	return data;
+}
 
 const initialState = { entries: {} };
 
@@ -81,6 +103,12 @@ const snacksReducer = (state = initialState, action) => {
 		case CREATE_SNACK:
 			newState = { ...state };
 			newState.entries = { [action.snack.id]: action.snack, ...newState.entries };
+			return newState;
+
+		case REMOVE_SNACK:
+			newState = { ...state };
+			delete newState.entries[action.id];
+			newState.entries = { ...newState.entries };
 			return newState;
 
 		default:
