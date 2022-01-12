@@ -3,14 +3,35 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserSnacks } from '../../store/snacks';
 import './UserSnacks.css';
+import EditModal from '../EditModal';
+
 
 const UserSnacks = () => {
 	const { ownerId } = useParams();
 	const currentId = ownerId;
-
+    const sessionUser = useSelector(state => state.session.user);
 	const dispatch = useDispatch();
 	const snacksObject = useSelector((state) => state.snacks.entries);
 	const snacks = Object.values(snacksObject);
+
+	// let ownerId;
+    // if (sessionUser) {
+    //   ownerId = sessionUser.id
+    // }
+
+	let sessionLinks;
+	if (sessionUser) {
+	  sessionLinks = (
+		  <EditModal />
+		  /* <DeleteModal /> */
+	  );
+	  } else {
+		  sessionLinks = (
+			  <>
+			  <h3>Please log in</h3>
+		</>
+	  );
+	}
 
 	const userSnackArr = [];
 	snacks.map(({ id, ownerId, title, imageUrl, description }) => {
@@ -33,7 +54,8 @@ const UserSnacks = () => {
 		<div>
 			<ul>
 				<div>
-					<h1> Your Snacks</h1>
+					{/* {currentId ? <h1>Your Snacks</h1> : <h1>Please log in</h1>} */}
+					<h1>Your Snacks</h1>
 					{userSnackArr.map(({ id, title, imageUrl, description }) => (
 						<li key={id} className="snack-container">
 							<div className="snack-img-container">
@@ -42,8 +64,9 @@ const UserSnacks = () => {
 							<div>
 								<h2>{title}</h2>
 								<p>{description}</p>
-                                <button className='edit-button'>Edit</button>
-                                <button className='delete-button'>Delete</button>
+								{sessionLinks}
+                                {/* <button className='edit-button'>Edit</button>
+                                <button className='delete-button'>Delete</button> */}
 							</div>
 						</li>
 					))}
