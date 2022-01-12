@@ -17,14 +17,17 @@ const UserSnacks = () => {
 			userSnackArr.push({ title, imageUrl, description });
 		}
 		return userSnackArr;
-	});
+
+});
 
 	useEffect(
 		() => {
-			dispatch(getUserSnacks());
+			dispatch(getUserSnacks(ownerId));
 		},
-		[ dispatch ]
+		[ ownerId ]
 	);
+
+
 	return (
 		<div>
 			<ul>
@@ -38,6 +41,8 @@ const UserSnacks = () => {
 							<div>
 								<h2>{title}</h2>
 								<p>{description}</p>
+                                <button>Edit</button>
+                                <button>Delete</button>
 							</div>
 						</li>
 					))}
