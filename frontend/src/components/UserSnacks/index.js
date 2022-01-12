@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserSnacks } from '../../store/snacks';
+import './UserSnacks.css';
 
 const UserSnacks = () => {
 	const { ownerId } = useParams();
@@ -41,8 +42,8 @@ const UserSnacks = () => {
 							<div>
 								<h2>{title}</h2>
 								<p>{description}</p>
-                                <button>Edit</button>
-                                <button>Delete</button>
+                                <button className='edit-button'>Edit</button>
+                                <button className='delete-button'>Delete</button>
 							</div>
 						</li>
 					))}
