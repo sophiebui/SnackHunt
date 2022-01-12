@@ -80,13 +80,6 @@ export const deleteSnack = (id) => async (dispatch) => {
 	return data;
 };
 
-export const getUserSnack = (id) => async (dispatch) => {
-	const response = await csrfFetch(`/api/snacks/${id}`);
-	const data = await response.json();
-
-	return data;
-}
-
 const initialState = { entries: {} };
 
 const snacksReducer = (state = initialState, action) => {

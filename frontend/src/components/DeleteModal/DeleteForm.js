@@ -9,9 +9,6 @@ function DeleteForm({id}) {
     const snacksObject = useSelector((state) => state.snacks.entries);
 	const snacks = Object.values(snacksObject);
 
-    // const id = snacks[0].id
-    // console.log(id)
-
     const handleSubmit = (e) => {
 
         e.preventDefault();

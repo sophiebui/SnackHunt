@@ -16,9 +16,7 @@ const UserSnacks = () => {
 	const snacksObject = useSelector((state) => state.snacks.entries);
 	const snacks = Object.values(snacksObject);
 	// const [showSpecificSnack, setShowSpecificSnack] = useState(false);
-console.log(snacks)
-console.log('this is ownerId:', ownerId)
-console.log('this is currentId:', currentId)
+
 	let sessionLinks;
 	if (sessionUser) {
 	  sessionLinks = (
@@ -47,11 +45,12 @@ console.log('this is currentId:', currentId)
 });
 
 
-console.log(userSnackArr)
+
 	useEffect(
 		() => {
+			console.log(getUserSnacks)
 			dispatch(getUserSnacks(ownerId));
-			// setShowSpecificSnack(false)
+
 		},
 		[ dispatch, ownerId ]
 	);
