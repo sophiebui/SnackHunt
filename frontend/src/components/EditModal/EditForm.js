@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import updateSnack from '../../store/snacks';
+import {updateSnack} from '../../store/snacks';
 import { useHistory } from 'react-router-dom';
 import './EditForm.css';
 
@@ -8,7 +8,6 @@ function EditForm({ setShowModal, id, snack }) {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const sessionUser = useSelector((state) => state.session.user);
-	console.log(snack);
 	const [ title, setTitle ] = useState(snack.title);
 	const [ imageUrl, setImageUrl ] = useState(snack.imageUrl);
 	const [ description, setDescription ] = useState(snack.description);
@@ -23,9 +22,10 @@ function EditForm({ setShowModal, id, snack }) {
 			imageUrl,
 			description
 		};
-		console.log(snack);
+		console.log('beforeeeeee')
 		const updatedSnack = await dispatch(updateSnack(payload));
-		console.log(updatedSnack);
+		console.log('this is where we at');
+
 		if (updatedSnack) {
 			history.push('/');
 		}

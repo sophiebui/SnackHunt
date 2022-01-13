@@ -10,11 +10,11 @@ function DeleteForm({id, setShowModal, ownerId}) {
 
 
     const handleSubmit = (e) => {
-        setShowModal(false)
         e.preventDefault();
         // history.push(`/${ownerId}`)
-        history.push(`/`)
-        return dispatch(deleteSnack(id))
+        // history.push(`/`)
+        dispatch(deleteSnack(id))
+        setShowModal(false)
 
     }
 	return (

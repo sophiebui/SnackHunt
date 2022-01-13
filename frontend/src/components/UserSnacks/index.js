@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getUserSnacks } from '../../store/snacks';
 import '../SnackList/SnackList.css';
 import EditModal from '../EditModal';
@@ -8,28 +8,29 @@ import DeleteModal from '../DeleteModal';
 
 const UserSnacks = () => {
 	const { ownerId } = useParams();
+	const sessionSnacks = useSelector(state => state.snacks)
 	const currentId = ownerId;
 	const dispatch = useDispatch();
-	const [snacks, setSnacks] = useState(JSON.parse(localStorage.getItem('snacks')))
+	// const [snacks, setSnacks] = useState(JSON.parse(localStorage.getItem('snacks')))
 	//  const json = localStorage.getItem('snacks');
 	//   snacks = JSON.parse(json);
-
+	const userSnackArr = Object.values(sessionSnacks.userSnacks)
 	useEffect(
 		() => {
-			setSnacks(JSON.parse(localStorage.getItem('snacks')))
+			// setSnacks(JSON.parse(localStorage.getItem('snacks')))
 			dispatch(getUserSnacks(ownerId));
 
 		},
 		[ dispatch, ownerId ]
 	);
 
-	const userSnackArr = [];
-	snacks.map((snack) => {
-		if (snack.ownerId === +currentId) {
-			userSnackArr.push(snack);
-		}
-		return userSnackArr;
-	});
+	// const userSnackArr = [];
+	// snacks.map((snack) => {
+	// 	if (snack.ownerId === +currentId) {
+	// 		userSnackArr.push(snack);
+	// 	}
+	// 	return userSnackArr;
+	// });
 	return (
 		<div>
 			<ul>
