@@ -21,7 +21,6 @@ export const createSnack = (snack) => {
 };
 
 export const removeSnack = (id) => {
-	console.log('remove snack id', id)
 	return {
 		type: REMOVE_SNACK,
 		id
@@ -84,13 +83,10 @@ export const deleteSnack = (id) => async (dispatch) => {
 	const response = await csrfFetch(`/api/snacks/${id}`, {
 		method: 'DELETE'
 	});
-	// const data = await response.json();
 	if (response.ok){
-		console.log('right before second dispatch')
 		dispatch(removeSnack(id));
 		return;
 	}
-	// return data;
 };
 
 export const updateSnack = (snack) => async (dispatch) => {
@@ -109,14 +105,10 @@ export const updateSnack = (snack) => async (dispatch) => {
 		})
 	});
 	if (response.ok) {
-
-		const data = await response.json();
-		dispatch(editSnack(data));
-	} else {
-		const errors = await response.json();
-		console.log(errors.errors)
-	}
-
+		// const data = await response.json();
+		dispatch(editSnack(snack));
+		return
+}
 };
 
 const initialState = { entries: {}, userSnacks: {} };

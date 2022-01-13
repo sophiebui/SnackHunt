@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserSnacks } from '../../store/snacks';
@@ -7,30 +7,18 @@ import EditModal from '../EditModal';
 import DeleteModal from '../DeleteModal';
 
 const UserSnacks = () => {
+	const dispatch = useDispatch();
 	const { ownerId } = useParams();
 	const sessionSnacks = useSelector(state => state.snacks)
-	const currentId = ownerId;
-	const dispatch = useDispatch();
-	// const [snacks, setSnacks] = useState(JSON.parse(localStorage.getItem('snacks')))
-	//  const json = localStorage.getItem('snacks');
-	//   snacks = JSON.parse(json);
 	const userSnackArr = Object.values(sessionSnacks.userSnacks)
+
 	useEffect(
 		() => {
-			// setSnacks(JSON.parse(localStorage.getItem('snacks')))
 			dispatch(getUserSnacks(ownerId));
-
 		},
 		[ dispatch, ownerId ]
 	);
 
-	// const userSnackArr = [];
-	// snacks.map((snack) => {
-	// 	if (snack.ownerId === +currentId) {
-	// 		userSnackArr.push(snack);
-	// 	}
-	// 	return userSnackArr;
-	// });
 	return (
 		<div>
 			<ul>
@@ -45,7 +33,7 @@ const UserSnacks = () => {
 								<h2>{snack.title}</h2>
 								<p>{snack.description}</p>
 								<EditModal id={snack.id} ownerId={ownerId} snack={snack}/>
-								<DeleteModal id={snack.id} ownerId={ownerId} />
+								<DeleteModal id={snack.id} />
 							</div>
 						</li>
 					))}

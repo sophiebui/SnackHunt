@@ -65,7 +65,8 @@ router.put(
 				imageUrl
 			});
 			await snack.save();
-			return res.json({ message: 'Complete' });
+			res.status(204).end()
+			// return res.json({ message: 'Complete' });
 		}
 	})
 );
