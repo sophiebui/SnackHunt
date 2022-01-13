@@ -2,20 +2,28 @@
     padding: 15px;
 }
 
-.delete-button-yes {
+.delete-buttons-div > button{
     border: none;
     border-radius: 5px;
-    background-color: grey;
+    width: 65px;
     margin: 5px;
+    padding: 10px;
+}
+
+.delete-button-yes {
+    background-color: grey;
 }
 
 .delete-button-cancel {
-    border: solid .1px gray;
-    border-radius: 5px;
     background-color: rgb(226, 65, 65);
-    margin: 5px;
 }
 
+.delete-buttons-div > button:hover {
+    border: none;
+	color: #fff;
+	border-radius: 5px;
+	transition: all 100ms ;
+}
 .delete-buttons-div {
     display: flex;
     justify-content: center;

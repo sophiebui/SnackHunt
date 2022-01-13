@@ -3,5 +3,25 @@
 	flex-direction: column;
 	padding: 20px;
 	margin: 50px;
+	row-gap: 12px;
+}
+.h2-edit {
+	color: black;
+	font-size: 18px;
+}
+.edit-label {
+	display: flex;
+	flex-direction: column;
 }
 
+.edit-label > input, textarea {
+	margin-top: 8px;
+}
+
+.edit-errors{
+	margin-left: -41px;
+}
+
+.errors {
+	color: red;
+}
