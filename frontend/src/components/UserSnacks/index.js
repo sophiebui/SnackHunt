@@ -43,7 +43,7 @@ const UserSnacks = () => {
 							<div>
 								<h2>{snack.title}</h2>
 								<p>{snack.description}</p>
-								<EditModal id={snack.id} ownerId={ownerId}/>
+								<EditModal id={snack.id} ownerId={ownerId} snack={snack}/>
 								<DeleteModal id={snack.id} ownerId={ownerId} />
 							</div>
 						</li>

@@ -103,7 +103,7 @@ export const updateSnack = (id, snack) => async (dispatch) => {
 		})
 	});
 	const data = await response.json();
-	dispatch(editSnack(id, snack));
+	dispatch(editSnack(data));
 	return data;
 };
 

@@ -53,6 +53,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
 	const id = parseInt(req.params.id);
 	const {  title, description, imageUrl } = req.body
 	const snack = await Snack.findByPk(id);
+
 	if (snack) {
 	  await snack.update({
 		title,
