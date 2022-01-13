@@ -24,7 +24,7 @@ const CreateSnack = () => {
 
         const snack = await dispatch(submitNewSnack(payload));
         if (snack) {
-            history.push(`/snack/${snack.id}`);
+            history.push(`/`);
           }
     }
 	return (

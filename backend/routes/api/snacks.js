@@ -31,47 +31,56 @@ router.post(
 );
 
 router.get(
-	'/:ownerId',
+	'/:ownerId(\\d+)',
 	asyncHandler(async (req, res) => {
-		const id = req.params.id;
-		const userSnacks = await Snack.findByPk(id);
+		const userSnacks = await Snack.findAll(
+			{ where: { ownerId: req.params.ownerId } });
 
 		return res.json(userSnacks);
 	})
 );
 
-router.get('/:id', asyncHandler(async (req, res) => {
-	const id = parseInt(req.params.id);
-	const snack = await Snack.findByPk(id);
-	if (snack) {
-	  return res.json({ snack });
-	}}))
-
-
-
-  router.put('/:id', asyncHandler(async (req, res) => {
-	const id = parseInt(req.params.id);
-	const {  title, description, imageUrl } = req.body
-	const snack = await Snack.findByPk(id);
-	if (snack) {
-	  await snack.update({
-		title,
-		description,
-		imageUrl
-	  });
-	  await snack.save();
-	  return res.json({ message: 'Complete' });
-	}}));
-
-
-
-router.delete('/:id', asyncHandler(async (req, res) => {
-	const id = parseInt(req.params.id);
-	const snack = await Snack.findByPk(id);
-	await db.Snack.findAll({
-		where: {id}
+router.get(
+	'/:id',
+	asyncHandler(async (req, res) => {
+		const id = parseInt(req.params.id);
+		const snack = await Snack.findByPk(id);
+		if (snack) {
+			return res.json({ snack });
+		}
 	})
-	await snack.destroy();
-}))
+);
+
+router.put(
+	'/:id',
+	asyncHandler(async (req, res) => {
+		const id = parseInt(req.params.id);
+		const { title, description, imageUrl } = req.body;
+		const snack = await Snack.findByPk(id);
+
+		if (snack) {
+			await snack.update({
+				title,
+				description,
+				imageUrl
+			});
+			await snack.save();
+			res.status(204).end()
+		}
+	})
+);
+
+router.delete(
+	'/:id',
+	asyncHandler(async (req, res) => {
+		const id = parseInt(req.params.id);
+		const snack = await Snack.findByPk(id);
+		await db.Snack.findAll({
+			where: { id }
+		});
+		await snack.destroy();
+		res.status(204).end()
+	})
+);
 
 module.exports = router;
