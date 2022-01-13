@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getUserSnacks } from '../../store/snacks';
 import './UserSnacks.css';
 import EditModal from '../EditModal';
@@ -10,14 +10,15 @@ const UserSnacks = () => {
 	const { ownerId } = useParams();
 	const currentId = ownerId;
 	const dispatch = useDispatch();
-
-	const json = localStorage.getItem('snacks');
-	const snacks = JSON.parse(json);
-
+	const [snacks, setSnacks] = useState(JSON.parse(localStorage.getItem('snacks')))
+	//  const json = localStorage.getItem('snacks');
+	//   snacks = JSON.parse(json);
 
 	useEffect(
 		() => {
+			setSnacks(JSON.parse(localStorage.getItem('snacks')))
 			dispatch(getUserSnacks(ownerId));
+
 		},
 		[ dispatch, ownerId ]
 	);
@@ -42,7 +43,7 @@ const UserSnacks = () => {
 							<div>
 								<h2>{snack.title}</h2>
 								<p>{snack.description}</p>
-								<EditModal />
+								<EditModal id={snack.id}/>
 								<DeleteModal id={snack.id} />
 							</div>
 						</li>

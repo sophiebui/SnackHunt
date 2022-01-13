@@ -41,16 +41,33 @@ router.get(
 );
 
 router.get('/:id', asyncHandler(async (req, res) => {
-	const id = parseInt(req.params.id, 10);
+	const id = parseInt(req.params.id);
 	const snack = await Snack.findByPk(id);
 	if (snack) {
 	  return res.json({ snack });
-	}
-	return res.json({ message: 'no snack found'});
-  }))
+	}}))
+
+
+
+  router.put('/:id', asyncHandler(async (req, res) => {
+	const id = parseInt(req.params.id);
+	const {  title, description, imageUrl } = req.body
+	const snack = await Snack.findByPk(id);
+
+	if (snack) {
+	  await snack.update({
+		title,
+		description,
+		imageUrl
+	  });
+	  await snack.save();
+	  return res.json({ message: 'Complete' });
+	}}));
+
+
 
 router.delete('/:id', asyncHandler(async (req, res) => {
-	const id = parseInt(req.params.id, 10);
+	const id = parseInt(req.params.id);
 	const snack = await Snack.findByPk(id);
 
 	await db.Snack.findAll({

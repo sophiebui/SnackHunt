@@ -1,17 +1,18 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteSnack } from '../../store/snacks';
 
 
 function DeleteForm({id, setShowModal}) {
     const dispatch = useDispatch();
+    const history = useHistory()
 
 
     const handleSubmit = (e) => {
         setShowModal(false)
         e.preventDefault();
-        <Redirect to='/'/>
+        history.push('/')
         return dispatch(deleteSnack(id))
 
     }

@@ -6,7 +6,7 @@ import Navigation from "./components/Navigation";
 import SnackList from "./components/SnackList";
 import CreateSnack from "./components/CreateSnack";
 import UserSnacks from "./components/UserSnacks"
-import DeleteForm from "./components/DeleteModal/DeleteForm";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -29,9 +29,6 @@ function App() {
           <Route exact path='/:ownerId'>
             <UserSnacks />
           </Route>
-          {/* <Route path='/:id'>
-            <DeleteForm />
-          </Route> */}
           <Route>
             Page Not Found
           </Route>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { submitNewSnack } from '../../store/snacks';
+import updateSnack from '../../store/snacks';
 import { useHistory } from 'react-router-dom';
 import './EditForm.css'
 
-function EditForm() {
+function EditForm({setShowModal, id}) {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -14,18 +14,20 @@ function EditForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const payload = {
+        setShowModal(false)
+        const snack = {
             ownerId: sessionUser.id,
             title,
             imageUrl,
             description
         }
 
-        const snack = await dispatch(submitNewSnack(payload));
-        if (snack) {
+    await dispatch(updateSnack(id, snack))
+        .then ((res)=>{
             history.push(`/snack/${snack.id}`);
-          }
+        })
+
+
     }
 	return (
         <form className="edit-form" onSubmit={handleSubmit}>
@@ -33,15 +35,15 @@ function EditForm() {
             <h2 className="h2-edit">SHARE YOUR SNACK:</h2>
             <label className="edit-label">
             Name of Snack:
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required/>
+            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             </label>
             <label className="edit-label">
             Image URL:
-            <input type="url" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} required/>
+            <input type="url" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
             </label>
             <label className="edit-label">
             Description
-            <textarea maxLength="250" value={description} onChange={(e) => setDescription(e.target.value)} required/>
+            <textarea maxLength="250" value={description} onChange={(e) => setDescription(e.target.value)} />
             </label>
             <button className="edit-button" type="submit">
             Submit

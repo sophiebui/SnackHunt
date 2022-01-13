@@ -3,7 +3,8 @@ import { csrfFetch } from './csrf';
 const GET_SNACKS = 'snacks/GET_SNACKS';
 const CREATE_SNACK = 'snacks/CREATE_SNACK';
 const REMOVE_SNACK = 'snacks/DELETE_SNACK';
-const GET_USER_SNACKS = '/snacks/GET_USER_SNACKS';
+// const GET_USER_SNACKS = '/snacks/GET_USER_SNACKS';
+const UPDATE_SNACK = '/snacks/UPDATE_SNACK';
 
 export const getSnacks = (snacks) => {
 	return {
@@ -26,6 +27,21 @@ export const removeSnack = (id) => {
 	};
 };
 
+// export const getSpecificSnacks = (snacks) => {
+// 	return {
+// 		type: GET_USER_SNACKS,
+// 		snacks
+// 	};
+// };
+
+export const editSnack = (id, snack) => {
+	return {
+		type: UPDATE_SNACK,
+		id,
+		snack
+	};
+};
+
 export const getAllSnacks = () => async (dispatch) => {
 	const response = await csrfFetch('/api/snacks');
 	const data = await response.json();
@@ -34,7 +50,6 @@ export const getAllSnacks = () => async (dispatch) => {
 
 export const submitNewSnack = (snack) => async (dispatch) => {
 	const { ownerId, title, imageUrl, description } = snack;
-	console.log(snack);
 	const response = await csrfFetch('/api/snacks/new', {
 		method: 'POST',
 		headers: {
@@ -73,6 +88,25 @@ export const deleteSnack = (id) => async (dispatch) => {
 	return data;
 };
 
+export const updateSnack = (id, snack) => async (dispatch) => {
+	const { ownerId, title, imageUrl, description } = snack;
+	const response = await csrfFetch(`/api/snacks/${id}`, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			ownerId,
+			title,
+			imageUrl,
+			description
+		})
+	});
+	const data = await response.json();
+	dispatch(editSnack(id, snack));
+	return data;
+};
+
 const initialState = { entries: {} };
 
 const snacksReducer = (state = initialState, action) => {
@@ -99,6 +133,17 @@ const snacksReducer = (state = initialState, action) => {
 			newState = { ...state };
 			delete newState.entries[action.id];
 			newState.entries = { ...newState.entries };
+			return newState;
+
+		// case GET_USER_SNACKS:
+		// 	return {
+		// 		...state,
+		// 		entries: [ ...action.list ]
+		// 	};
+
+		case UPDATE_SNACK:
+			newState = { ...state };
+			newState.entries = { ...newState.entries, [action.id]: action.snack };
 			return newState;
 
 		default:

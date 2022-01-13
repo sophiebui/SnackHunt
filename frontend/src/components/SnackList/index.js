@@ -22,7 +22,8 @@ const SnackList = () => {
 		<div>
 			<ul>
 				<div className="list-container">
-					{snacks.map(({ id, title, imageUrl, description }) => (
+					<h1>Explore Snacks</h1>
+				{snacks.map(({ id, title, imageUrl, description }) => (
 						<li key={id} className="snack-container">
 							<div className="snack-img-container">
 								<img className="snack-list-img" src={imageUrl} alt={title} />
