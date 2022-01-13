@@ -1,19 +1,19 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteSnack } from '../../store/snacks';
 
 
-function DeleteForm({id}) {
+function DeleteForm({id, setShowModal}) {
     const dispatch = useDispatch();
-    const snacksObject = useSelector((state) => state.snacks.entries);
-	const snacks = Object.values(snacksObject);
+
 
     const handleSubmit = (e) => {
-
+        setShowModal(false)
         e.preventDefault();
+        <Redirect to='/'/>
         return dispatch(deleteSnack(id))
-        .then((res) => <Redirect to='/'/>)
+
     }
 	return (
 		<div>

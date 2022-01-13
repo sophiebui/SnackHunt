@@ -10,7 +10,7 @@ function DeleteModal({id}) {
       <button className='delete-button' onClick={() => setShowModal(true)}>Delete</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeleteForm id={id}/>
+          <DeleteForm id={id} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>

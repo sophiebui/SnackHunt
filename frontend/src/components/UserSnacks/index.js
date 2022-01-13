@@ -6,43 +6,13 @@ import './UserSnacks.css';
 import EditModal from '../EditModal';
 import DeleteModal from '../DeleteModal';
 
-
-
 const UserSnacks = () => {
 	const { ownerId } = useParams();
 	const currentId = ownerId;
 	const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
-	const snacksObject = useSelector((state) => state.snacks.entries);
-	const snacks = Object.values(snacksObject);
 
-
-	// let sessionLinks;
-	// if (sessionUser) {
-	//   sessionLinks = (
-	// 	  <>
-
-	// 	  <EditModal />
-
-	// 	  </>
-	//   );
-	//   } else {
-	// 	  sessionLinks = (
-	// 		  <>
-	// 		  <h3>Please log in</h3>
-	// 	</>
-	//   );
-	// }
-
-
-	const userSnackArr = [];
-	snacks.map((snack) => {
-		if (snack.ownerId === +currentId) {
-			userSnackArr.push(snack)
-		}
-		return userSnackArr;
-
-});
+	const json = localStorage.getItem('snacks');
+	const snacks = JSON.parse(json);
 
 
 	useEffect(
@@ -52,12 +22,17 @@ const UserSnacks = () => {
 		[ dispatch, ownerId ]
 	);
 
-
+	const userSnackArr = [];
+	snacks.map((snack) => {
+		if (snack.ownerId === +currentId) {
+			userSnackArr.push(snack);
+		}
+		return userSnackArr;
+	});
 	return (
 		<div>
 			<ul>
 				<div>
-
 					<h1>Your Snacks</h1>
 					{userSnackArr.map((snack) => (
 						<li key={snack.id} className="snack-container">
@@ -68,7 +43,7 @@ const UserSnacks = () => {
 								<h2>{snack.title}</h2>
 								<p>{snack.description}</p>
 								<EditModal />
-								<DeleteModal id={snack.id}/>
+								<DeleteModal id={snack.id} />
 							</div>
 						</li>
 					))}
