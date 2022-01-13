@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getUserSnacks } from '../../store/snacks';
-import './UserSnacks.css';
+import '../SnackList/SnackList.css';
 import EditModal from '../EditModal';
 import DeleteModal from '../DeleteModal';
 
@@ -33,7 +33,7 @@ const UserSnacks = () => {
 	return (
 		<div>
 			<ul>
-				<div>
+				<div className="list-container">
 					<h1>Your Snacks</h1>
 					{userSnackArr.map((snack) => (
 						<li key={snack.id} className="snack-container">

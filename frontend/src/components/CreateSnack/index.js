@@ -30,7 +30,7 @@ const CreateSnack = () => {
 	return (
         <form className="create-form" onSubmit={handleSubmit}>
             <div className="create-div">
-                <h2 className="h2-create">SHARE YOUR SNACK:</h2>
+                <h2 className="h2-create">SHARE YOUR SNACK</h2>
                 <label className="create-label">
                 Name of Snack:
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required/>

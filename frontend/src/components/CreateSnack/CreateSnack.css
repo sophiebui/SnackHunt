@@ -31,7 +31,16 @@
 .create-button {
     border: none;
 	border-radius: 5px;
-	height: 28px;
+	height: 5%;
+    width: 50%;
+}
+
+.create-button:hover {
+	border: none;
+	background: #8d8b8b;
+	color: #fff;
+	border-radius: 5px;
+	transition: all 250ms ease;
 }
 
 .create-label > input {
@@ -54,4 +63,5 @@ textarea {
 .h2-create {
     font-size: 20px;
     margin: 20px;
+    color: black;
 }
