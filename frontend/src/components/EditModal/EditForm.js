@@ -32,15 +32,15 @@ function EditForm({ setShowModal, id, snack, ownerId }) {
 				<h2 className="h2-edit">EDIT YOUR SNACK:</h2>
 				<label className="edit-label">
 					Name of Snack:
-					<input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+					<input type="text" value={title} onChange={(e) => setTitle(e.target.value) } required />
 				</label>
 				<label className="edit-label">
 					Image URL:
-					<input type="url" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+					<input type="url" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} required />
 				</label>
 				<label className="edit-label">
 					Description
-					<textarea maxLength="250" value={description} onChange={(e) => setDescription(e.target.value)} />
+					<textarea maxLength="250" value={description} onChange={(e) => setDescription(e.target.value)} required/>
 				</label>
 				<button className="edit-button" type="submit">
 					Submit
