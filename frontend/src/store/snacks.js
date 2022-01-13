@@ -122,11 +122,7 @@ const snacksReducer = (state = initialState, action) => {
 
 		case CREATE_SNACK:
 			newState = { ...state };
-			console.log(newState);
-
 			newState.entries = { [action.snack.id]: action.snack, ...newState.entries };
-			console.log(newState.entries);
-			console.log('this is new state', newState);
 			return newState;
 
 		case REMOVE_SNACK:
@@ -143,7 +139,7 @@ const snacksReducer = (state = initialState, action) => {
 
 		case UPDATE_SNACK:
 			newState = { ...state };
-			newState.entries = { ...newState.entries, [action.id]: action.snack };
+			newState.entries = { [action.snack.id]: action.snack, ...newState.entries };
 			return newState;
 
 		default:

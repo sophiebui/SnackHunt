@@ -1,12 +1,26 @@
-button {
+.edit-button {
     border: none;
 	border-radius: 5px;
 	height: 28px;
     margin: 5px;
 }
+.edit-button:hover{
+	border: none;
+	background: #8d8b8b;
+	color: #fff;
+	border-radius: 5px;
+	transition: all 250ms ease;
+}
 
-button:hover {
-    border: none;
+.delete-button {
+	border: none;
+	border-radius: 5px;
+	height: 28px;
+    margin: 5px;
+}
+
+.delete-button:hover{
+	border: none;
 	background: #8d8b8b;
 	color: #fff;
 	border-radius: 5px;

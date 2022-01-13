@@ -13,9 +13,10 @@ const SnackList = () => {
 		() => {
 			const json = JSON.stringify(snacks);
 			localStorage.setItem('snacks', json);
+
 			dispatch(getAllSnacks());
 		},
-		[ dispatch ]
+		[dispatch ]
 	);
 
 	return (

@@ -22,17 +22,16 @@ function EditForm({setShowModal, id}) {
             description
         }
 
-    await dispatch(updateSnack(id, snack))
+       await dispatch(updateSnack(id, snack))
         .then ((res)=>{
             history.push(`/snack/${snack.id}`);
         })
-
-
     }
+
 	return (
         <form className="edit-form" onSubmit={handleSubmit}>
         <div className="edit-div">
-            <h2 className="h2-edit">SHARE YOUR SNACK:</h2>
+            <h2 className="h2-edit">EDIT YOUR SNACK:</h2>
             <label className="edit-label">
             Name of Snack:
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />

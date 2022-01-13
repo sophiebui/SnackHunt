@@ -37,10 +37,10 @@ function Navigation({ isLoaded }){
       </li>
       <div className='navbar-links'>
       <li>
-          <NavLink to="/new" className='navbar-links'>Add a Snack</NavLink>
+        <NavLink to={`/${ownerId}`} className='navbar-links'>My Snacks</NavLink>
       </li>
       <li>
-        <NavLink to={`/${ownerId}`} className='navbar-links'>My Snacks</NavLink>
+          <NavLink to="/new" className='navbar-links'>Add a Snack</NavLink>
       </li>
       <li>
         <AboutLink />
