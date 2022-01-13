@@ -1,0 +1,22 @@
+.delete-button-modal {
+    padding: 15px;
+}
+
+.delete-button-yes {
+    border: none;
+    border-radius: 5px;
+    background-color: grey;
+    margin: 5px;
+}
+
+.delete-button-cancel {
+    border: solid .1px gray;
+    border-radius: 5px;
+    background-color: rgb(226, 65, 65);
+    margin: 5px;
+}
+
+.delete-buttons-div {
+    display: flex;
+    justify-content: center;
+}

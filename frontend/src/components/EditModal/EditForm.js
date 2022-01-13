@@ -24,7 +24,7 @@ function EditForm({setShowModal, id}) {
 
        await dispatch(updateSnack(id, snack))
         .then ((res)=>{
-            history.push(`/snack/${snack.id}`);
+            history.push('/');
         })
     }
 
