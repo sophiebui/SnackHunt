@@ -17,7 +17,7 @@ router.get(
 );
 
 router.post(
-	'/',
+	'/new',
 	asyncHandler(async (req, res) => {
 		const { ownerId, title, imageUrl, description } = req.body;
 		const snack = await Snack.create({
@@ -57,15 +57,6 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 		where: {id}
 	})
 	await snack.destroy();
-	// res.redirect('/')
-// 	if (snack) {
-// 	  await snack.destroy();
-// 	  return res.json({ message: 'delete successful' });
-// 	}
-
-// 	return res.json({ message: 'no snack found' });
-//   }));
-
 }))
 
 module.exports = router;

@@ -23,7 +23,7 @@ function App() {
           <Route exact path='/'>
             <SnackList />
           </Route>
-          <Route exact path='/new'>
+          <Route path='/new'>
             <CreateSnack />
           </Route>
           <Route exact path='/:ownerId'>
