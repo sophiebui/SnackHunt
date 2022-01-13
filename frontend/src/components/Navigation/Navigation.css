@@ -3,20 +3,6 @@ body {
 	padding: 0px;
 }
 
-/* .navbar {
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.17);
-    position: sticky;
-    width: 100%;
-    top: 0;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 0px 0px 0px;
-    padding: 0px;
-    align-items: center;
-    background-color: white;
-} */
-
 .navbar {
 	display: grid;
 	grid-template-columns: 1fr 3fr 1fr;
@@ -38,6 +24,7 @@ li {
 a.navbar-links {
     text-decoration: none;
     color: black;
+	font-size: 18px;
 }
 
 div.navbar-links {
@@ -62,19 +49,11 @@ li.navbar-links {
 .navbar-links:hover {
 	color: #f92c85;
 }
-/* 
-.navbar-links > button:hover {
-	border: none;
-	background: #8d8b8b;
-	color: #fff;
-	border-radius: 5px;
-	transition: all 250ms ease;
-} */
 
 .logo {
     grid-template-columns: 1fr 1fr;
 	width: 90px;
-	margin-left: -100px;
+	margin-left: -150px;
 }
 
 .about-button {
@@ -82,7 +61,7 @@ li.navbar-links {
 	background-color: transparent;
 	border-radius: 5px;
 	color: black;
-	font-size: 15px;
+	font-size: 18px;
 }
 
 .about-button:hover {
@@ -91,7 +70,7 @@ li.navbar-links {
 }
 
 .about-dropdown {
-	background-color: #fdf5df70;
+	background-color: #706e6934;
 	margin: 0;
 	padding: 0;
 	position: absolute;
@@ -100,4 +79,54 @@ li.navbar-links {
 	text-align: center;
 	width: 200px;
 	border-radius: 5px;
+}
+
+.profile-button {
+	height: 60px;
+	width: 65px;
+	border: none;
+	border-radius: 5px;
+	margin-right: -250px;
+}
+
+.profile-button:hover {
+	border: none;
+	background: #8d8b8b;
+	color: #fff;
+	border-radius: 5px;
+	transition: all 100ms ;
+}
+
+.profile-dropdown {
+	background-color: #706e6934;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 100px;
+	padding: 10px;
+	text-align: center;
+	width: 150px;
+	border-radius: 5px;
+	right: 0px;
+	color:black;
+}
+.extraClass {
+	font-size: 35px;
+}
+
+.logout-button {
+	margin: 10px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	color: black;
+	font-size: 15px;
+}
+
+.logout-button:hover {
+	border: none;
+	background: #8d8b8b;
+	color: #fff;
+	border-radius: 5px;
+	transition: all 100ms ;
 }
