@@ -15,24 +15,24 @@ const UserSnacks = () => {
     const sessionUser = useSelector(state => state.session.user);
 	const snacksObject = useSelector((state) => state.snacks.entries);
 	const snacks = Object.values(snacksObject);
-	// const [showSpecificSnack, setShowSpecificSnack] = useState(false);
 
-	let sessionLinks;
-	if (sessionUser) {
-	  sessionLinks = (
-		  <>
-		  {/* <SpecificSnack hideForm={()=> setShowSpecificSnack(true)} /> */}
-		  <EditModal />
-		  {/* <DeleteModal /> */}
-		  </>
-	  );
-	  } else {
-		  sessionLinks = (
-			  <>
-			  <h3>Please log in</h3>
-		</>
-	  );
-	}
+
+	// let sessionLinks;
+	// if (sessionUser) {
+	//   sessionLinks = (
+	// 	  <>
+
+	// 	  <EditModal />
+
+	// 	  </>
+	//   );
+	//   } else {
+	// 	  sessionLinks = (
+	// 		  <>
+	// 		  <h3>Please log in</h3>
+	// 	</>
+	//   );
+	// }
 
 
 	const userSnackArr = [];
@@ -45,12 +45,9 @@ const UserSnacks = () => {
 });
 
 
-
 	useEffect(
 		() => {
-			console.log(getUserSnacks)
 			dispatch(getUserSnacks(ownerId));
-
 		},
 		[ dispatch, ownerId ]
 	);
@@ -70,8 +67,7 @@ const UserSnacks = () => {
 							<div>
 								<h2>{snack.title}</h2>
 								<p>{snack.description}</p>
-								{/* {sessionLinks} */}
-
+								<EditModal />
 								<DeleteModal id={snack.id}/>
 							</div>
 						</li>
