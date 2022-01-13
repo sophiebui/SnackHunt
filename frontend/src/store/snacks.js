@@ -1,9 +1,9 @@
-import { csrfFetch } from "./csrf";
+import { csrfFetch } from './csrf';
 
 const GET_SNACKS = 'snacks/GET_SNACKS';
 const CREATE_SNACK = 'snacks/CREATE_SNACK';
 const REMOVE_SNACK = 'snacks/DELETE_SNACK';
-const GET_USER_SNACKS = '/snacks/GET_USER_SNACKS'
+const GET_USER_SNACKS = '/snacks/GET_USER_SNACKS';
 
 export const getSnacks = (snacks) => {
 	return {
@@ -26,14 +26,6 @@ export const removeSnack = (id) => {
 	};
 };
 
-export const userSnacks = (ownerId) => {
-	return {
-		type: GET_USER_SNACKS,
-		ownerId
-	}
-}
-
-
 export const getAllSnacks = () => async (dispatch) => {
 	const response = await csrfFetch('/api/snacks');
 	const data = await response.json();
@@ -42,7 +34,7 @@ export const getAllSnacks = () => async (dispatch) => {
 
 export const submitNewSnack = (snack) => async (dispatch) => {
 	const { ownerId, title, imageUrl, description } = snack;
-	console.log(snack)
+	console.log(snack);
 	const response = await csrfFetch('/api/snacks/new', {
 		method: 'POST',
 		headers: {
@@ -67,9 +59,8 @@ export const getUserSnacks = (ownerId) => async (dispatch) => {
 	const response = await fetch(`/api/snacks/${ownerId}`);
 
 	if (response.ok) {
-		const data = await response.json();
-		dispatch(userSnacks(data.snacks))
-		console.log(data.snacks)
+		const snack = await response.json();
+		return snack;
 	}
 };
 
@@ -97,11 +88,11 @@ const snacksReducer = (state = initialState, action) => {
 
 		case CREATE_SNACK:
 			newState = { ...state };
-			console.log(newState)
+			console.log(newState);
 
 			newState.entries = { [action.snack.id]: action.snack, ...newState.entries };
-			console.log(newState.entries)
-			console.log('this is new state', newState)
+			console.log(newState.entries);
+			console.log('this is new state', newState);
 			return newState;
 
 		case REMOVE_SNACK:
