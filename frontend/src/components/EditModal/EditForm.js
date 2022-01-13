@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {updateSnack} from '../../store/snacks';
-import { useHistory } from 'react-router-dom';
+import { updateSnack } from '../../store/snacks';
 
 import './EditForm.css';
 
 function EditForm({ setShowModal, id, snack, ownerId }) {
 	const dispatch = useDispatch();
-	// const history = useHistory()
+
 	const sessionUser = useSelector((state) => state.session.user);
 	const [ title, setTitle ] = useState(snack.title);
 	const [ imageUrl, setImageUrl ] = useState(snack.imageUrl);
@@ -25,7 +24,6 @@ function EditForm({ setShowModal, id, snack, ownerId }) {
 
 		await dispatch(updateSnack(payload));
 		setShowModal(false);
-		// history.push(`/${ownerId}`)
 	};
 
 	return (

@@ -69,13 +69,12 @@ export const submitNewSnack = (snack) => async (dispatch) => {
 	}
 };
 
-
 export const getUserSnacks = (ownerId) => async (dispatch) => {
 	const response = await fetch(`/api/snacks/${ownerId}`);
 
 	if (response.ok) {
 		const userSnacks = await response.json();
-		dispatch(getSpecificSnacks(userSnacks))
+		dispatch(getSpecificSnacks(userSnacks));
 	}
 };
 
@@ -83,7 +82,7 @@ export const deleteSnack = (id) => async (dispatch) => {
 	const response = await csrfFetch(`/api/snacks/${id}`, {
 		method: 'DELETE'
 	});
-	if (response.ok){
+	if (response.ok) {
 		dispatch(removeSnack(id));
 		return;
 	}
@@ -107,8 +106,8 @@ export const updateSnack = (snack) => async (dispatch) => {
 	if (response.ok) {
 		// const data = await response.json();
 		dispatch(editSnack(snack));
-		return
-}
+		return;
+	}
 };
 
 const initialState = { entries: {}, userSnacks: {} };
@@ -137,13 +136,13 @@ const snacksReducer = (state = initialState, action) => {
 			return newState;
 
 		case GET_USER_SNACKS:
-			const allUserSnacks = {}
-			action.snacks.forEach(snack => {
-				allUserSnacks[snack.id] = snack
-			})
+			const allUserSnacks = {};
+			action.snacks.forEach((snack) => {
+				allUserSnacks[snack.id] = snack;
+			});
 			return {
 				...state,
-				userSnacks: {...allUserSnacks}
+				userSnacks: { ...allUserSnacks }
 			};
 
 		case UPDATE_SNACK:

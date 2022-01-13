@@ -66,7 +66,6 @@ router.put(
 			});
 			await snack.save();
 			res.status(204).end()
-			// return res.json({ message: 'Complete' });
 		}
 	})
 );
