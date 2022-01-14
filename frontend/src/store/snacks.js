@@ -104,7 +104,6 @@ export const updateSnack = (snack) => async (dispatch) => {
 		})
 	});
 	if (response.ok) {
-		// const data = await response.json();
 		dispatch(editSnack(snack));
 		return;
 	}
@@ -147,7 +146,7 @@ const snacksReducer = (state = initialState, action) => {
 
 		case UPDATE_SNACK:
 			newState = { ...state };
-			newState.entries = { [action.snack.id]: action.snack, ...newState.entries };
+			newState.userSnacks = { ...newState.userSnacks , [action.snack.id]: action.snack };
 			return newState;
 
 		default:

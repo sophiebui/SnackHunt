@@ -41,6 +41,17 @@ router.get(
 );
 
 router.get(
+	'/:snackId',
+	asyncHandler(async (req, res) => {
+		const id = parseInt(req.params.id);
+		const snack = await Snack.findByPk(id);
+		if (snack) {
+			return res.json({ snack });
+		}
+	})
+);
+
+router.get(
 	'/:id',
 	asyncHandler(async (req, res) => {
 		const id = parseInt(req.params.id);

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllSnacks } from '../../store/snacks';
 import './SnackList.css';
 
 const SnackList = () => {
 	const dispatch = useDispatch();
-
 	const snacksObject = useSelector((state) => state.snacks.entries);
 	const snacks = Object.values(snacksObject);
 
@@ -16,7 +16,7 @@ const SnackList = () => {
 
 			dispatch(getAllSnacks());
 		},
-		[dispatch ]
+		[ dispatch ]
 	);
 
 	return (
@@ -24,15 +24,17 @@ const SnackList = () => {
 			<ul>
 				<div className="list-container">
 					<h1>Explore Snacks</h1>
-				{snacks.map(({ id, title, imageUrl, description }) => (
+					{snacks.map(({ id, title, imageUrl, description }) => (
 						<li key={id} className="snack-container">
-							<div className="snack-img-container">
-								<img className="snack-list-img" src={imageUrl} alt={title} />
-							</div>
+							{/* <Link to={`/snacks/${snack.id}`}> */}
+								<div className="snack-img-container">
+									<img className="snack-list-img" src={imageUrl} alt={title} />
+								</div>
 							<div>
 								<h2>{title}</h2>
 								<p>{description}</p>
 							</div>
+							{/* </Link> */}
 						</li>
 					))}
 				</div>
