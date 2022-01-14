@@ -30,6 +30,11 @@ const CreateSnack = () => {
 	return (
         <form className="create-form" onSubmit={handleSubmit}>
             <div className="create-div">
+            {!sessionUser ? (<>
+            <h1 className='create-logged-out-h1'>Yikes - you aren't logged in!</h1>
+                <h2 className='create-logged-out-h2'>Please log in to share your snacks with the world</h2>
+            </>) : (
+                <>
                 <h2 className="h2-create">SHARE YOUR SNACK</h2>
                 <label className="create-label">
                 Name of Snack:
@@ -46,6 +51,7 @@ const CreateSnack = () => {
                 <button className="create-button" type="submit">
                 Add Snack!
                 </button>
+                </> )}
             </div>
         </form>
     )

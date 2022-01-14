@@ -77,15 +77,19 @@ p {
 
 .my-snacks-logged-out {
 	text-align: center;
-	margin-top: 55px;
+	/* margin-top: 55px; */
+	position:absolute;
+	top:40%;
+	left:35%;
 }
 
 .logged-out-message-h1 {
 	color: #5ebec4;
-	margin: 0;
+	margin: 0 0 10px 0;
 }
 .logged-out-message-h2 {
 	color: #f92c85;
+	margin-top:  15px;
 }
 
 .cookie-container {
