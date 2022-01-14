@@ -24,8 +24,8 @@ function LoginForm() {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<ul>{errors.map((error, idx) => <li key={idx}>{error}</li>)}</ul>
 			<div className="login-form-div">
+			<ul className='errors'>{errors.map((error, idx) => <li key={idx}>{error}</li>)}</ul>
 				<label className="login-label">
 					Username or Email
 					<input type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />

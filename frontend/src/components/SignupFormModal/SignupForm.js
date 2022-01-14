@@ -28,8 +28,8 @@ function SignupForm() {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<ul>{errors.map((error, idx) => <li key={idx}>{error}</li>)}</ul>
 			<div className="signup-form-div">
+			<ul className='errors'>{errors.map((error, idx) => <li key={idx}>{error}</li>)}</ul>
 				<label className="signup-label">
 					Email
 					<input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
