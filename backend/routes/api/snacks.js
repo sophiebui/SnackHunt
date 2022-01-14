@@ -43,14 +43,15 @@ router.get(
 router.get(
 	'/:snackId',
 	asyncHandler(async (req, res) => {
-		const id = parseInt(req.params.id);
-		const snack = await Snack.findByPk(id);
+		const snackId = parseInt(req.params.id);
+		const snack = await Snack.findByPk(snackId);
 		if (snack) {
 			return res.json({ snack });
 		}
 	})
 );
-
+// const image = await Image.findByPk(req.params.id);
+// return res.json(image)
 router.get(
 	'/:id',
 	asyncHandler(async (req, res) => {
