@@ -17,7 +17,7 @@ const UserSnacks = () => {
 		() => {
 			dispatch(getUserSnacks(ownerId));
 		},
-		[ dispatch, ownerId ]
+		[ dispatch ]
 	);
 
 	return (
