@@ -4,7 +4,7 @@ import { updateSnack } from '../../store/snacks';
 
 import './EditForm.css';
 
-function EditForm({ setShowModal, id, snack, ownerId }) {
+function EditForm({ setShowModal, id, snack }) {
 	const dispatch = useDispatch();
 
 	const sessionUser = useSelector((state) => state.session.user);

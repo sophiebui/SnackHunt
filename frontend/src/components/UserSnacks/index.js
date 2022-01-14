@@ -9,6 +9,7 @@ import DeleteModal from '../DeleteModal';
 const UserSnacks = () => {
 	const dispatch = useDispatch();
 	const { ownerId } = useParams();
+	const sessionUser = useSelector((state) => state.session.user);
 	const sessionSnacks = useSelector(state => state.snacks)
 	const userSnackArr = Object.values(sessionSnacks.userSnacks)
 
@@ -22,6 +23,19 @@ const UserSnacks = () => {
 	return (
 		<div>
 			<ul>
+				{!sessionUser ? (
+					<div className='my-snacks-logged-out'>
+					<h1 className='logged-out-message-h1'>OH NO! SOMEONE ATE YOUR SNACKS. </h1>
+					<div className='cookie-container'>
+
+					<div className='cookie-icon-1'> <i class="fas fa-cookie-bite"/></div>
+					<div className='cookie-icon-2'> <i class="fas fa-cookie-bite"/></div>
+					<div className='cookie-icon-3'> <i class="fas fa-cookie-bite"/></div>
+						</div>
+					
+					<h2 className='logged-out-message-h2'>Just kidding. Please log in to view your snacks</h2>
+					</div>
+				) :
 				<div className="list-container">
 					<h1>Your Snacks</h1>
 					{userSnackArr.map((snack) => (
@@ -37,7 +51,7 @@ const UserSnacks = () => {
 							</div>
 						</li>
 					))}
-				</div>
+				</div> }
 			</ul>
 		</div>
 	);
