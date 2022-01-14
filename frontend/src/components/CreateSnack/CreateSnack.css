@@ -1,7 +1,4 @@
-/* body {
-    height: 100vh;
-    width: 100vw;
-} */
+
 .create-form {
 	display: flex;
 	justify-content: center;
@@ -48,7 +45,6 @@
 	border-right-style: hidden;
 	border-left-style: hidden;
 	border-bottom: solid .5px gray;
-	background-color: #eee;
 	border-radius: 3px;
 	width: 100%;
 	height: 20px;
@@ -61,7 +57,7 @@ textarea {
 }
 
 .h2-create {
-	font-size: 20px;
+	font-size: 25px;
 	margin: 20px;
 	color: black;
 }

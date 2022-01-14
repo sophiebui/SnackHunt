@@ -35,7 +35,7 @@ const UserSnacks = () => {
 					</div>
 				) :
 				<div className="list-container">
-					<h1>Your Snacks</h1>
+					<h1 className='list-container-h1'>Your Snacks</h1>
 					{userSnackArr.map((snack) => (
 						<li key={snack.id} className="snack-container">
 							<div className="snack-img-container">

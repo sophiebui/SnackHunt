@@ -23,7 +23,7 @@ const SnackList = () => {
 		<div>
 			<ul>
 				<div className="list-container">
-					<h1>Explore Snacks</h1>
+					<h1 className='list-container-h1'>Explore Snacks</h1>
 					{snacks.map(({ id, title, imageUrl, description }) => (
 						<li key={id} className="snack-container">
 							{/* <Link to={`/snacks/${snack.id}`}> */}

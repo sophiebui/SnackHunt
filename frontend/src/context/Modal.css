@@ -1,3 +1,4 @@
+
 #modal {
 	position: fixed;
 	top: 0;
@@ -53,7 +54,7 @@
 .login-label {
 	margin: 10px 15px 10px 10px;
 	font-size: 20px;
-	font-family: serif;
+
 }
 
 .login-label > input {
@@ -61,7 +62,6 @@
 	border-right-style: hidden;
 	border-left-style: hidden;
 	border-bottom: solid .5px gray;
-	background-color: #eee;
 	border-radius: 3px;
 	width: 106%;
 	height: 20px;
@@ -103,7 +103,6 @@
 .signup-label {
   margin: 10px 15px 10px 10px;
 	font-size: 20px;
-	font-family: serif;
 }
 
 .signup-label > input {
@@ -111,7 +110,6 @@
 	border-right-style: hidden;
 	border-left-style: hidden;
 	border-bottom: solid .5px gray;
-	background-color: #eee;
 	border-radius: 3px;
 	width: 106%;
 	height: 20px;
