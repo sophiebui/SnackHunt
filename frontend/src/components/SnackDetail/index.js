@@ -25,13 +25,14 @@ const SnackDetail = () => {
 					<div className='snack-detail-text-div'>
 						<h2 className='snack-detail-h2'>{snack.title}</h2>
 						<p className='snack-detail-p-desc'>{snack.description}</p>
+						{sessionUser ? <>
 							{+snack.ownerId === +sessionUser.id ?
 							<>
 							<p className='your-snack-p'>Recognize this snack? It's one of yours! View all of your munchies
 							<Link to={`/${snack.ownerId}`} className='link-to-my-snacks'> here</Link>.
 							</p>
 							</>
-							: null}
+							: null}	</> : null}
 							<Link to='/' className='home-link'>Back to Home</Link>
 					</div>
 				</li>
