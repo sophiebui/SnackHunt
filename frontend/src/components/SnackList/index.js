@@ -22,7 +22,7 @@ const SnackList = () => {
 				<div className="list-container">
 					<h1 className="list-container-h1">Explore Snacks</h1>
 					{snacks.map(({ id, title, imageUrl, description }) => (
-						<Link to={`/snacks/${id}`}>
+						<Link to={`/snacks/${id}`} key={id}>
 							<li key={id} className="snack-container">
 								<div className="snack-img-container">
 									<img className="snack-list-img" src={imageUrl} alt={title} />
