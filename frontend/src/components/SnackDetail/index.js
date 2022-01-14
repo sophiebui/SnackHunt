@@ -19,13 +19,13 @@ const SnackDetail = () => {
 	return (
 		<>
 			{specificSnack.map((snack) => (
-				<li key={snack.id} className="snack-detail-container">
-					<div className="snack-detail-img-container">
-						<img className="snack-detail-img" src={snack.imageUrl} alt={snack.title} />
+				<li key={snack.id} className='snack-detail-container'>
+					<div className='snack-detail-img-container'>
+						<img className='snack-detail-img' src={snack.imageUrl} alt={snack.title} />
 					</div>
-					<div>
-						<h2>{snack.title}</h2>
-						<p>{snack.description}</p>
+					<div className='snack-detail-text-div'>
+						<h2 className='snack-detail-h2'>{snack.title}</h2>
+						<p className='snack-detail-p'>{snack.description}</p>
 					</div>
 				</li>
 			))}

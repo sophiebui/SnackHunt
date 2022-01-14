@@ -1,0 +1,34 @@
+.snack-detail-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.snack-detail-img-container {
+	max-width: 500px;
+    height: 400px;
+}
+
+.snack-detail-img {
+	width: 100%;
+    height: 100%;
+	/* object-fit: fit; */
+	border-radius: 60px;
+}
+
+.snack-detail-text-div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    margin-top: 20px;
+    width: 500px;
+
+}
+
+.snack-detail-h2 {
+	font-size: 25px;
+}
+.snack-detail-p {
+    margin-top: 5px;
+}
