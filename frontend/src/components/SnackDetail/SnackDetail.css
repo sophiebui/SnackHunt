@@ -28,7 +28,29 @@
 
 .snack-detail-h2 {
 	font-size: 25px;
+	color: black;
 }
-.snack-detail-p {
+.snack-detail-p-desc{
     margin-top: 5px;
+}
+
+.your-snack-p {
+	margin-top: 5px;
+}
+
+.link-to-my-snacks{
+	color: #5EBEC4;
+}
+.link-to-my-snacks:hover{
+	color: #F92C85;
+}
+
+.home-link {
+	text-decoration: none;
+	color: black;
+	margin-top: 20px;
+}
+
+.home-link:hover {
+	color: #F92C85;
 }
