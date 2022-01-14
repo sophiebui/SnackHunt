@@ -1,36 +1,36 @@
+import { useSelector } from 'react-redux';
 
-import { useEffect} from 'react'
-import {  useDispatch } from 'react-redux'
-import { useParams} from 'react-router-dom'
-import * as sessionActions from '../../../store/session'
+import { useParams } from 'react-router-dom';
 
+import './SnackDetail.css';
 
-import './SnackDetails.css'
+const SnackDetail = () => {
+	const sessionSnacks = useSelector((state) => state.snacks);
+	const snackArr = Object.values(sessionSnacks.entries);
+	const { snackId } = useParams();
 
-const SnackDetails = ({ snacks }) => {
-    const dispatch = useDispatch()
+	let specificSnack = [];
+	snackArr.map((snack) => {
+		if (+snackId === snack.id) {
+			specificSnack.push(snack);
+		}
+	});
 
+	return (
+		<>
+			{specificSnack.map((snack) => (
+				<li key={snack.id} className="snack-detail-container">
+					<div className="snack-detail-img-container">
+						<img className="snack-detail-img" src={snack.imageUrl} alt={snack.title} />
+					</div>
+					<div>
+						<h2>{snack.title}</h2>
+						<p>{snack.description}</p>
+					</div>
+				</li>
+			))}
+		</>
+	);
+};
 
-    const { id } = useParams()
-
-    const singleSnack = snacks.find(snack => snack.id === +id)
-
-
-
-    useEffect(() => {
-        dispatch(sessionActions.restoreUser())
-    }, [dispatch])
-
-    if (!singleSnack) {
-        return (
-        <h1>test</h1>
-        )
-    }
-
-    return (
-        <>
-        </>
-    )
-}
-
-export default SnackDetails
+export default SnackDetail;

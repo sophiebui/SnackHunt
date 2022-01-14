@@ -6,7 +6,7 @@ import Navigation from "./components/Navigation";
 import SnackList from "./components/SnackList";
 import CreateSnack from "./components/CreateSnack";
 import UserSnacks from "./components/UserSnacks"
-
+import SnackDetail from "./components/SnackDetail"
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +28,9 @@ function App() {
           </Route>
           <Route exact path='/:ownerId'>
             <UserSnacks />
+          </Route>
+          <Route path='/snacks/:snackId'>
+            <SnackDetail />
           </Route>
           <Route>
             Page Not Found

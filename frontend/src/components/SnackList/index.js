@@ -11,10 +11,7 @@ const SnackList = () => {
 
 	useEffect(
 		() => {
-			const json = JSON.stringify(snacks);
-			localStorage.setItem('snacks', json);
-
-			dispatch(getAllSnacks());
+		dispatch(getAllSnacks());
 		},
 		[ dispatch ]
 	);
@@ -23,19 +20,19 @@ const SnackList = () => {
 		<div>
 			<ul>
 				<div className="list-container">
-					<h1 className='list-container-h1'>Explore Snacks</h1>
+					<h1 className="list-container-h1">Explore Snacks</h1>
 					{snacks.map(({ id, title, imageUrl, description }) => (
-						<li key={id} className="snack-container">
-							{/* <Link to={`/snacks/${snack.id}`}> */}
+						<Link to={`/snacks/${id}`}>
+							<li key={id} className="snack-container">
 								<div className="snack-img-container">
 									<img className="snack-list-img" src={imageUrl} alt={title} />
 								</div>
-							<div>
-								<h2>{title}</h2>
-								<p>{description}</p>
-							</div>
-							{/* </Link> */}
-						</li>
+								<div>
+									<h2>{title}</h2>
+									<p>{description}</p>
+								</div>
+							</li>
+						</Link>
 					))}
 				</div>
 			</ul>

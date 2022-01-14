@@ -50,8 +50,7 @@ router.get(
 		}
 	})
 );
-// const image = await Image.findByPk(req.params.id);
-// return res.json(image)
+
 router.get(
 	'/:id',
 	asyncHandler(async (req, res) => {
